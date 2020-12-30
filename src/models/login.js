@@ -2,7 +2,7 @@ import { stringify } from 'querystring';
 import { history } from 'umi';
 import { message } from 'antd';
 import { fakeAccountLogin } from '@/services/login';
-// import { setAuthority } from '@/utils/authority';
+import { setAuthority } from '@/utils/authority';
 import { getPageQuery } from '@/utils/utils';
 
 const Model = {
@@ -11,12 +11,12 @@ const Model = {
     status: undefined,
   },
   effects: {
-    *login({ payload }, { call }) {
+    *login({ payload }, { call, put }) {
       const response = yield call(fakeAccountLogin, payload);
-      // yield put({
-      //   type: 'changeLoginStatus',
-      //   payload: response,
-      // }); // Login successfully
+      yield put({
+        type: 'changeLoginStatus',
+        payload: response,
+      }); // Login successfully
 
       if (response.code === 200) {
         const urlParams = new URL(window.location.href);
@@ -46,9 +46,9 @@ const Model = {
     logout() {
       const { redirect } = getPageQuery(); // Note: There may be security issues, please note
 
-      if (window.location.pathname !== '/user/login' && !redirect) {
+      if (window.location.pathname !== '/login' && !redirect) {
         history.replace({
-          pathname: '/user/login',
+          pathname: '/login',
           search: stringify({
             redirect: window.location.href,
           }),
@@ -57,10 +57,10 @@ const Model = {
     },
   },
   reducers: {
-    // changeLoginStatus(state, { payload }) {
-    //   setAuthority(payload.currentAuthority);
-    //   return { ...state, status: payload.status, type: payload.type };
-    // },
+    changeLoginStatus(state, { payload }) {
+      setAuthority(payload.data[0]);
+      return { ...state, code: payload.code, token: payload.data && payload.data[0] };
+    },
   },
 };
 export default Model;

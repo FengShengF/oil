@@ -50,6 +50,8 @@ export default {
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
 
-  'menu.company': '公司',
-  'menu.user': '用户',
+  'menu.company': '公司配置',
+  'menu.user': '用户配置',
+  'menu.team': '团队配置',
+  'menu.role': '角色配置',
 };

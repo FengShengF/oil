@@ -40,7 +40,7 @@ const UserLayout = (props) => {
         <div className={styles.content}>
           <div className={styles.top}>
             <div className={styles.header}>
-              <Link to="/">
+              <Link to="/login">
                 <img alt="logo" className={styles.logo} src={logo} />
                 <span className={styles.title}>油田无线监控系统</span>
               </Link>

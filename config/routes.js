@@ -39,6 +39,18 @@ export default [
                 icon: 'crown',
                 component: './User',
               },
+              {
+                path: '/team',
+                name: 'team',
+                icon: 'aim',
+                component: './Team',
+              },
+              {
+                path: '/role',
+                name: 'role',
+                icon: 'user',
+                component: './Role',
+              },
               // {
               //   path: '/admin',
               //   name: 'admin',
