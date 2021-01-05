@@ -1,7 +1,7 @@
 export default {
     'GET /user/list': (req, res) => {
         res.send({
-            code: 200,
+            code: '200',
             msg: '获取成功',
             data: [
                 {
@@ -51,17 +51,60 @@ export default {
     },
     'PUT /user/update': (req, res) => {
         res.send({
-            code: 200
+            code: '200'
         })
     },
     'DELETE /user/delete/1': (req, res) => {
         res.send({
-            code: 200
+            code: '200'
         })
     },
     'POST /user/add': (req, res) => {
         res.send({
-            code: 200
+            code: '200'
         })
-    }
+    },
+    'GET /userRole/getRoleList/1': (req, res) => {
+        res.send({
+            code: '200',
+            msg: '获取成功',
+            data: [
+                {
+                    id: '1',
+                    name: '角色1',
+                    type: 0,
+                    crtDate: '2020-12-06T11:34:46.000+0000',
+                    crtUserId: 1,
+                    selected: false
+                },
+                {
+                    id: '2',
+                    name: '角色2',
+                    type: 1,
+                    crtDate: '2020-12-06T11:34:46.000+0000',
+                    crtUserId: 1,
+                    selected: true
+                },
+                {
+                    id: '3',
+                    name: '角色3',
+                    type: 0,
+                    crtDate: '2020-12-06T11:34:46.000+0000',
+                    crtUserId: 1,
+                    selected: true
+                },
+            ],
+        });
+    },
+    'POST /userRole/addList': (req, res) => {
+        res.send({
+            code: '200'
+        })
+    },
+    'DELETE /userRole/deleteList': (req, res) => {
+        res.send({
+            code: '200'
+        })
+    },
+
 };

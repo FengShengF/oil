@@ -23,3 +23,22 @@ export async function addRoleDetail(params) {
         data: params,
     });
 }
+
+export async function getMenuList(params) {
+    return request(`/roleMenu/getMenuList/${params.id}`);
+}
+
+export async function addRoleMenu(params) {
+    return request(`/roleMenu/addList`, {
+        method: 'POST',
+        data: params,
+    });
+}
+
+export async function deleteRoleMenu(params) {
+    return request(`/roleMenu/deleteList`, {
+        method: 'DELETE',
+        data: params,
+    });
+}
+

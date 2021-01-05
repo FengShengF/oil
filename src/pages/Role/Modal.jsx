@@ -5,7 +5,7 @@ import { Row, Col, Input, Select, Radio } from 'antd';
 const { Option } = Select;
 
 const RoleModal = (props) => {
-    const { roleDetail, setRoleDetail, companyList } = props;
+    const { title, roleDetail, setRoleDetail, companyList } = props;
     const { name, companyId, type } = roleDetail;
 
     return (
@@ -20,13 +20,14 @@ const RoleModal = (props) => {
                         value={name}
                     />
                 </Col>
+                <Col push={1} span={2}><span style={{ color: 'red' }}>*</span></Col>
             </Row>
             <Row style={{ marginBottom: 10 }} type="flex" align="middle">
                 <Col span={4}>
                     <span>公司名称:</span>
                 </Col>
                 <Col span={12}>
-                    <Select value={companyId} style={{ width: 150 }} onChange={(e) => setRoleDetail({ ...roleDetail, companyId: e })}>
+                    <Select disabled={title === '修改角色'} value={companyId} style={{ width: 150 }} onChange={(e) => setRoleDetail({ ...roleDetail, companyId: e })}>
                         {
                             companyList.map(item => (
                                 <Option key={item.id} value={item.id}>{item.companyName}</Option>
@@ -34,6 +35,7 @@ const RoleModal = (props) => {
                         }
                     </Select>
                 </Col>
+                <Col push={1} span={2}><span style={{ color: 'red' }}>*</span></Col>
             </Row>
             <Row style={{ marginBottom: 10 }} type="flex" align="middle">
                 <Col span={4}>
@@ -48,6 +50,7 @@ const RoleModal = (props) => {
                         <Radio value={'1'}>管理员</Radio>
                     </Radio.Group>
                 </Col>
+                <Col push={1} span={2}><span style={{ color: 'red' }}>*</span></Col>
             </Row>
 
         </>

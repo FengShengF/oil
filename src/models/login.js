@@ -18,7 +18,7 @@ const Model = {
         payload: response,
       }); // Login successfully
 
-      if (response.code === 200) {
+      if (response.code === '200') {
         const urlParams = new URL(window.location.href);
         const params = getPageQuery();
         message.success('🎉 🎉 🎉  登录成功！');

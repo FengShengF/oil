@@ -7,7 +7,7 @@ const waitTime = (time = 100) => {
 };
 
 async function getFakeCaptcha(req, res) {
-  await waitTime(2000);
+  await waitTime('200'0);
   return res.json('captcha-xxx');
 } // 代码中会兼容本地 service mock 以及部署站点的静态数据
 
@@ -86,11 +86,11 @@ export default {
   ],
   'POST /auth/login': async (req, res) => {
     const { password, user } = req.body;
-    // await waitTime(2000);
+
 
     if (password === 'admin' && user === 'admin') {
       res.send({
-        code: 200,
+        code: '200',
         msg: '成功',
         data: ['tokensssssss'],
       });

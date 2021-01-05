@@ -21,14 +21,14 @@ const Team = () => {
 
     const getListHoc = async () => {
         const response = await getTeamList();
-        if (response.code === 200) {
+        if (response.code === '200') {
             setTeamList(response.data);
         }
     }
 
     const getCompanyListHoc = async () => {
         const response = await getCompanyList();
-        if (response.code === 200) {
+        if (response.code === '200') {
             setCompanyList(response.data);
         }
     }
@@ -41,7 +41,7 @@ const Team = () => {
 
     const deleteTeam = async ({ id }) => {
         const res = await deleteTeamServer({ id })
-        if (res.code === 200) {
+        if (res.code === '200') {
             message.success('成功');
             getListHoc()
         } else {
@@ -70,7 +70,7 @@ const Team = () => {
             res = await updateTeamDetail({ id, teamName, companyId, teamLeader })
         }
 
-        if (res.code === 200) {
+        if (res.code === '200') {
             message.success('成功');
             setModalVisible(false);
             getListHoc();

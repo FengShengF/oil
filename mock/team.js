@@ -1,7 +1,7 @@
 export default {
     'GET /team/list': (req, res) => {
         res.send({
-            code: 200,
+            code: '200',
             msg: '获取成功',
             data: [
                 {
@@ -39,17 +39,17 @@ export default {
     },
     'PUT /team/update': (req, res) => {
         res.send({
-            code: 200
+            code: '200'
         })
     },
     'DELETE /team/delete/1': (req, res) => {
         res.send({
-            code: 200
+            code: '200'
         })
     },
     'POST /team/add': (req, res) => {
         res.send({
-            code: 200
+            code: '200'
         })
     }
 };

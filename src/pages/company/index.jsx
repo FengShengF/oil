@@ -18,7 +18,7 @@ const Company = () => {
 
     const getListHoc = async () => {
         const response = await getCompanyList();
-        if (response.code === 200) {
+        if (response.code === '200') {
             setCompanyList(response.data);
         }
     }
@@ -31,7 +31,7 @@ const Company = () => {
 
     const deleteCompany = async ({ id }) => {
         const res = await deleteCompanyServer({ id })
-        if (res.code === 200) {
+        if (res.code === '200') {
             message.success('成功');
             getListHoc()
         } else {
@@ -60,7 +60,7 @@ const Company = () => {
             res = await updateCompanyDetail({ id, company: companyName, pid })
         }
 
-        if (res.code === 200) {
+        if (res.code === '200') {
             message.success('成功');
             setModalVisible(false);
             getListHoc()

@@ -23,3 +23,22 @@ export async function addUserDetail(params) {
         data: params,
     });
 }
+
+export async function getRoleList(params) {
+    return request(`/userRole/getRoleList/${params.id}`);
+}
+
+export async function addUserRole(params) {
+    return request(`/userRole/addList`, {
+        method: 'POST',
+        data: params,
+    });
+}
+
+export async function deleteUserRole(params) {
+    return request(`/userRole/deleteList`, {
+        method: 'DELETE',
+        data: params,
+    });
+}
+
